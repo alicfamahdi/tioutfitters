@@ -27,7 +27,18 @@ Mengimplementasikan checklist membutuhkan beberapa trial-and-error. Pada akhirny
 
 ## Jelaskan fungsi `git` dalam pengembangan perangkat lunak!
 
-Git adalah alat pengembangan perangkat lunak yang gratis dan _open-source_. Git berupa sistem kontrol versi (_version control system_) yang dapat mengelola projek secara efisien. Secara kolaboratif, git digunakan untuk melacak dan menyimpan perubahan pada _source code_, sehingga banyak _developer_ dapat bekerja sama di projek yang sama secara non-linear.
+Git adalah alat pengembangan perangkat lunak yang gratis dan _open-source_. Git berupa sistem kontrol versi (_version control system_) yang dapat mengelola projek secara efisien. Secara kolaboratif, git digunakan untuk melacak dan menyimpan perubahan pada _source code_, sehingga banyak _developer_ dapat bekerja sama di proyek yang sama secara non-linear.
+Adapun fitur-fitur unggul yang dapat digunakan dalam git untuk pengembangan perangkat lunak:
+- Menyimpan perubahan secara lengkap
+  Git melacak setiap perubahan yang dilakukan pada setiap file seiring waktu, termasuk mencatat siapa yang membuat perubahan, kapan perubahan itu dilakukan, dan mengapa. Hal ini mencakup membuat dan menghapus file, serta mengedit kontennya.
+- Branching dan Merging
+  Developer yang bekerja dalam satu proyek dapat membuat "branch"-nya sendiri untuk mengerjakan bagian masing-masing. Bagian-bagian terpisah ini nantinya bisa digabung menggunakan fitur "merge"
+- Mudah ditelusuri
+  Git juga bisa digunakan untuk melacak setiap perubahan dan menghubungkan perubahan tersebut ke tools manajemen proyek dan pelacakan bug.
+- Mempercepat waktu rilis
+  Metode pengembangan terdistribusi ini memungkinkan developer untuk mengerjakan dan merilis pembaruan kecil secara lebih sering. Dengan begitu, perubahan-perubahan ini dapat melewati proses peluncuran lebih cepat dibandingkan dengan merilis pembaruan besar sekaligus, yang umum terjadi pada sistem kontrol versi terpusat.
+- Komunitas
+  Karena gratis dan _open-source_, git telah menjadi standar untuk kontrol versi dan terdapat komunitas besar penggunanya yang dapat memberi bantuan jika ada masalah.
 
 ## Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 
