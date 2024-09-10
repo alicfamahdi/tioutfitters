@@ -22,6 +22,7 @@ Mengimplementasikan checklist membutuhkan beberapa trial-and-error. Pada akhirny
 
 ## Buatlah bagan yang berisi *request client* ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan berkas `html`.
 
+![bagan](https://github.com/user-attachments/assets/e0122a73-3dc5-4b74-9855-8599fcf3b6b3)
 
 
 ## Jelaskan fungsi `git` dalam pengembangan perangkat lunak!
