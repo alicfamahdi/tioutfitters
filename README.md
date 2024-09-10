@@ -22,13 +22,16 @@ Mengimplementasikan checklist membutuhkan beberapa trial-and-error. Pada akhirny
 
 ## Buatlah bagan yang berisi *request client* ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan berkas `html`.
 
+
+
 ## Jelaskan fungsi `git` dalam pengembangan perangkat lunak!
 
+Git adalah alat pengembangan perangkat lunak yang gratis dan _open-source_. Git berupa sistem kontrol versi (_version control system_) yang dapat mengelola projek secara efisien. Secara kolaboratif, git digunakan untuk melacak dan menyimpan perubahan pada _source code_, sehingga banyak _developer_ dapat bekerja sama di projek yang sama secara non-linear.
 
 ## Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 
-Django digunakan untuk permulaan pembelajaran pengembangan perangkat lunak karena menggunakan bahasa python yang mudah dipelajari karena kesederhanaan sintaksnya.
+Menurut saya, framework Django digunakan untuk permulaan pembelajaran pengembangan perangkat lunak karena menggunakan bahasa Python yang mudah dipelajari karena kesederhanaan sintaksnya. Untuk mata kuliah PBP di Fasilkom ini, mahasiswa yang mengikutinya pasti sudah lulus mata kuliah prasyarat PBP, yaitu DDP-1 yang mengajarkan bahasa Python, dan sudah setidaknya menguasai beberapa keterampilan dalam bahasa Python.
 
 ## Mengapa model pada Django disebut sebagai *ORM*?
 
-Django's Object-Relational Mapping (ORM) is a powerful tool that allows developers to interact with a relational database using Python code, without writing raw SQL queries. The ORM provides a high-level abstraction layer over the database, making it easier for developers to work with complex data structures.
+Django memiliki sistem ORM (_Object-Relational Mapping_) yang berfungsi sebagai jembatan antara basis data dan kode aplikasi. Dengan ORM, _developer_ dapat berinteraksi dengan basis data menggunakan bahasa Python tanpa harus menulis query SQL. ORM menyediakan abstraksi _high-level_ di atas basis data dan mempermudah pekerjaan _developer_ dengan struktur data yang kompleks.
