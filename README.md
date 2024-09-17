@@ -1,6 +1,57 @@
 # 
 <http://aliefa-alsyafiandra-tioutfitters.pbp.cs.ui.ac.id/>
 
+## Jelaskan mengapa kita memerlukan *data delivery* dalam pengimplementasian sebuah platform?
+
+Data delivery biasanya mencakup HTTP response yang memberikan file HTML, CSS, JPG, JS, serta XML atau JSON, sesuai request browser. Data delivery diperlukan dalam pengimplementasian sebuah platform karena tanpa adanya data delivery, tampilan, data, atau bahkan logic dari suatu website tidak akan muncul sesuai request HTTP yang telah diminta oleh user via client browser.
+
+## Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+XML dan JSON masing-masing mempunyai kelebihan saat digunakan dalam suatu proyek. Jika ingin menyimpan beberapa tipe data dengan banyak variabel, XML adalah pilihan yang lebih cocok. XML mengecek error dalam data kompleks secara lebih efisien dibandingkan dengan JSON.
+JSON lebih populer dibanding XML karena berbagai keunggulannya dibandingkan dengan XML:
+- Sintaks yang digunakan lebih mudah dibuat dan dibaca.
+- JSON bisa di-_parse_ dengan function JavaScript yang aksesibel.
+- Transmisi data yang cepat.
+- Ukuran file yang lebih kecil.
+- Parsing yang lebih aman daripada XML.
+
+## Jelaskan fungsi dari method `is_valid()` pada form Django dan mengapa kita membutuhkan method tersebut?
+
+Fungsi `is_valid()` digunakan pada variabel `form` yang merupakan semua input yang dimasukkan user dalam form yang diberikan. `form.is_valid()` digunakan untuk memvalidasi isi input dari *form* tersebut. Tipe data fields yang ada di form sudah didefinisikan, maka perlu validasi input agar bisa diproses dan tidak terjadi error. 
+
+
+## Mengapa kita membutuhkan `csrf_token` saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan `csrf_token` pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+Cross Site Request Forgery (CSRF) adalah sebuah serangan eksploitasi web yang membuat pengguna tanpa sadar mengirim sebuah permintaan atau request ke website melalui website yang sedang digunakan saat itu. Suatu CSRF token adalah token random yang digunakan untuk mencegah serangan CSRF. Dengan menambahkan csrf_token pada form, kita bisa menghindari serangan CSRF di aplikasi kita. Jika tidak, penyerang dapat membahayakan pengguna aplikasi dengan mengarahkannya ke aplikasi yang berbahaya.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- Membuka folder mental-health-tracker dan folder project saya secara bersamaan agar bisa melakukan direct comparison dan bisa melihat perbedaan yang harus ditambahkan.
+- Menambahkan folder .github/workflows dan membuat deploy.yml agar bisa push ke GitHub dan ke PWS sekaligus.
+- Membuat direktori templates pada direktori utama (root folder) dan membuat base.html untuk menjadi kerangka app lainnya
+- Menyesuaikan TEMPLATES pada settings.py
+- Modifikasi main.html pada direktori main agar extend base.html
+- Import UUID dalam models.py dan menambahkan atribut id, serta makemigrations setelah mengubah models.py
+- Membuat file forms.py dalam direktori main, membuat subclass dari ModelForm dengan inner class Meta, import model Product dengan fields yang sesuai.
+- Import model dan membuat function baru dalam views.py untuk menyimpan input dari form
+- Mengubah function show_main agar memberikan data yang didapat dari input form
+- Konfigurasi routing urls.py dengan import function dan menambah path ke urlpatterns
+- Membuat file html untuk form yang meng-extend base.html
+- Modifikasi main.html agar bisa menunjukkan data dari input forms dan menambah tombol "add entry"
+- Menambah function dalam views.py yang mengembalikan data dalam bentuk XML, JSON, serta keduanya dari ID, lalu routing urls.py untuk tiap function baru
+- Menggunakan Postman untuk melihat data.
+
+http://localhost:8000/json/ :
+![image](https://github.com/user-attachments/assets/68c750e1-9934-42a1-9326-dddf2feedff9)
+http://localhost:8000/xml/ :
+![image](https://github.com/user-attachments/assets/095a869e-a7e6-4378-ac11-1577df97728b)
+http://localhost:8000/json/[id] :
+![image](https://github.com/user-attachments/assets/a8e65cee-f5b2-4993-9850-45393286a170)
+http://localhost:8000/xml/[id] :
+![image](https://github.com/user-attachments/assets/be150890-4687-4cd5-bb6b-055e18e2086a)
+
+
+---
 ## Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 
 Mengimplementasikan checklist membutuhkan beberapa trial-and-error. Pada akhirnya, saya melakukannya sebagai berikut:
