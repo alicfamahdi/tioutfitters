@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+ {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,3 +22,35 @@
         <marquee><p>{{ npm }} - {{ name }} - {{ class }}</p></marquee> 
 </body>
 </html>
+
+...
+{% if not product_entries %}
+<p>No products yet.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Favorite</th>
+  </tr>
+
+  {% comment %} memperlihatkan data product
+  {% endcomment %} 
+  {% for product_entry in product_entries %}
+  <tr>
+    <td>{{product_entry.name}}</td>
+    <td>{{product_entry.price}}</td>
+    <td>{{product_entry.description}}</td>
+    <td>{{product_entry.favorite}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+  <button>Add New Product</button>
+</a>
+{% endblock content %}
