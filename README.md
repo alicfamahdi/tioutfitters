@@ -1,6 +1,8 @@
 # 
 <http://aliefa-alsyafiandra-tioutfitters.pbp.cs.ui.ac.id/>
 
+# Tugas 3
+
 ## Jelaskan mengapa kita memerlukan *data delivery* dalam pengimplementasian sebuah platform?
 
 Data delivery biasanya mencakup HTTP response yang memberikan file HTML, CSS, JPG, JS, serta XML atau JSON, sesuai request browser. Data delivery diperlukan dalam pengimplementasian sebuah platform karena tanpa adanya data delivery, tampilan, data, atau bahkan logic dari suatu website tidak akan muncul sesuai request HTTP yang telah diminta oleh user via client browser.
@@ -52,6 +54,9 @@ http://localhost:8000/xml/[id] :
 
 
 ---
+
+# Tugas 2
+
 ## Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 
 Mengimplementasikan checklist membutuhkan beberapa trial-and-error. Pada akhirnya, saya melakukannya sebagai berikut:
