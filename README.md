@@ -1,5 +1,51 @@
 # 
 <http://aliefa-alsyafiandra-tioutfitters.pbp.cs.ui.ac.id/>
+# Tugas 4
+
+## Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`
+
+HttpResponseRedirect adalah sebuah subclass dari HttpResponse. HttpResponseRedirect() merupakan constructor dari class tersebut yang membutuhkan argument berupa path tujuan redirect, hanya bisa berupa full URL ('https://www.yahoo.com/search/'), path tanpa domain ('/search/'), atau relative path ('search/'). redirect() adalah sebuah function yang akan me-return HttpResponseRedirect dan dapat menerima model, view, atau url sebagai argument tujuan redirect, membuatnya lebih fleksibel dibandingkan dengan HttpResponseRedirect().
+
+##  Jelaskan cara kerja penghubungan model `Product` dengan `User`!
+
+Pada models.py, ditambahkan atribut user ke model Product dengan models.ForeignKey yang akan mendefinisikan many-to-one relationship antara Product dan User; satu User bisa memiliki multiple Product, tetapi suatu Product hanya bisa memiliki satu User. Pada views.py, product_entries diubah agar menunjukkan product yang diinput oleh user yang sedang login saja.
+
+##  Apa perbedaan antara *authentication* dan *authorization*, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+Authentication adalah metode verifikasi identitas pengguna atau sistem yang mengecek kredensial seperti username, password, atau informasi biometrik. Authentication penting untuk mengamankan akses ke sistem, program, atau informasi sensitif.
+Authorization adalah langkah setelah authentication yang menetapkan dan memberikan izin ke pengguna, memberi spesifikasi apa saja yang dapat diakses oleh pengguna dan aksi apa saja yang dapat dilakukan.
+Sistem authentication Django menghandle kedua authentication dan authorization. Sistem authnya terdiri dari:
+- Users
+- Permissions: flag biner (yes/no) yang menentukan apakah suatu user bisa melakukan task tertentu.
+- Groups: memberi label dan permissions ke lebih dari 1 user.
+- Sistem password yang bisa dikonfigurasi
+- Form untuk user login, atau mambatasi konten
+- Sistem backend
+
+##  Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari *cookies* dan apakah semua cookies aman digunakan?
+
+Django bisa mengingat pengguna yang sudah login dengan proses holding state. Salah satu cara yang paling banyak digunakan untuk melakukan holding state adalah dengan menggunakan session ID yang disimpan sebagai cookie pada komputer klien. Session ID dapat dianggap sebagai suatu token (barisan karakter) untuk mengenali session yang unik pada aplikasi web tertentu. Daripada menyimpan semua jenis informasi sebagai cookies pada klien seperti username, nama, dan password, hanya Session ID yang disimpan, lalu dipetakan ke data di sisi web server.
+
+
+##  Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
+
+- Mengubah views.py: import messages dan UserCreationForm agar bisa menggunakan form pendaftaran pengguna bawaan.
+- Menambahkan function register dalam views.py yang menggunakan UserCreationForm, memasukkan QueryDict berdasarkan input dari user pada request.POST, serta return redirect ke page login jika berhasil register.
+- Membuat register.html untuk tampilan page register serta menambah routing path register ke urls.py.
+- Menambahkan function login dalam views.py: import AuthenticationForm, authenticate, login, HttpResponseRedirect, reverse, dan datetime, lalu buat function login_user. AuthenticationForm akan dimasukkan data dari request.POST. Jika user valid, akan diredirect ke main page dan set cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login.
+- Membuat login.html untuk tampilan page login serta menambah routing path login ke urls.py.
+- Menambahkan function logout dalam views.py: import logout, lalu buat function logout_user yang akan menghapus cookies last login dan redirect ke page login.
+- Menambahkan tombol untuk logout dan menunjukkan kapan user terakhir login di main.html dan routing path logout ke urls.py.
+- Memodifikasi views.py agar main page hanya bisa muncul jika sudah login dengan menambahkan line @login_required(login_url='/login') di atas function show_main.
+- Membuat account pada localhost.
+- Menghubungkan Product dengan User: memodifikasi models.py untuk import User dan menambahkan atribut user pada model Product, dengan relationship ForeignKey (satu user bisa memiliki multiple product, tetapi suatu product hanya memiliki satu user)
+- Mengubah function product_entry: form.save(commit=False) agar objek Product yang dibuat tidak langsung disimpan ke database, karena field user perlu diisi dengan objek User dari return value request.user.
+- Mengubah function show_main agar menunjukkan Product yang dibuat oleh User yang sedang login saja.
+- Menyimpan perubahan pada models dan makemigrations.
+- Memodifikasi settings.py untuk import os dan set PRODUCTION dan DEBUG
+
+
+---
 
 # Tugas 3
 
@@ -51,7 +97,6 @@ http://localhost:8000/json/[id] :
 ![image](https://github.com/user-attachments/assets/a8e65cee-f5b2-4993-9850-45393286a170)
 http://localhost:8000/xml/[id] :
 ![image](https://github.com/user-attachments/assets/be150890-4687-4cd5-bb6b-055e18e2086a)
-
 
 ---
 
