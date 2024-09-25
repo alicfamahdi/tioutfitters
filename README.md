@@ -42,8 +42,10 @@ Django bisa mengingat pengguna yang sudah login dengan proses holding state. Sal
 - Mengubah function product_entry: form.save(commit=False) agar objek Product yang dibuat tidak langsung disimpan ke database, karena field user perlu diisi dengan objek User dari return value request.user.
 - Mengubah function show_main agar menunjukkan Product yang dibuat oleh User yang sedang login saja.
 - Menyimpan perubahan pada models dan makemigrations.
-- Memodifikasi settings.py untuk import os dan set PRODUCTION dan DEBUG
-
+- Memodifikasi settings.py untuk import os dan set PRODUCTION dan DEBUG.
+- Membuat dua user dan membuat tiga product untuk tiap user.
+![alt text](tugas-4-user-1.png)
+![alt text](tugas-4-user-2.png)
 
 ---
 
