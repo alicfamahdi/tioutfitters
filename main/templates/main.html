@@ -1,64 +1,43 @@
 {% extends 'base.html' %}
- {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIOutfitters</title>
-</head>
-<body>
-    <marquee><h1 style="color:#0dc2db;">TIOutfitters TIOutfitters TIOutfitters TIOutfitters TIOutfitters TIOutfitters TIOutfitters</h1></marquee>
-    <h4>Welcome, {{ username }}!</h4>
-    <div class="headerBar">
-        <a class="navLink current">Home</a>
-        <a href="https://genius.com/Rick-astley-never-gonna-give-you-up-lyrics" class="navLink">About</a>
-        <a href="https://shopee.co.id/" class="navLink">Shop</a>
-        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.roblox.com/games/15101393044/Dress-To-Impress&ved=2ahUKEwj_kcKylLWIAxW3xDgGHXn2C5EQFnoECBgQAQ&usg=AOvVaw1ecNzkX-8tsfcMaAyP3fG-" 
-        class="navLink">Digital Dressing Room</a>
-      </div>
-      <h2>See how it looks before you buy it!</h2>
-        <a href="https://shopee.co.id/" class="navLink">Shop now</a>
+{% load static %}
 
-        <marquee><p>{{ npm }} - {{ name }} - {{ class }}</p></marquee> 
-</body>
-</html>
+{% block meta %}
+<title>TIOutfitters</title>
+{% endblock meta %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="font-mono pt-20 w-screen bg-neutral-950 p-4">
+    <h1 class="text-white font-bold sm:text-2xl text-left">
+        Welcome, {{ username }}!
+    </h1>
+</div>
+<div class="overflow-x-hidden font-mono px-4 md:px-8 pb-8 pt-30 min-h-screen bg-repeat flex flex-col" style="background-image: url(https://img.freepik.com/premium-photo/seamless-leopard-print-pattern-high-resolution-digital-art-illustration_349618-39995.jpg);">
+    <div class="p-3">
+        <div class="flex items-center bg-neutral-300 py-2 px-4 w-fit">
+          <h1 class="text-black text-center">Last Login: {{last_login}}</h1>
+        </div>
+        <div class="flex justify-end mb-6">
+            <a href="{% url 'main:create_product' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105">
+                Add New Product
+            </a>
+        </div>
+    </div>
+        
+    {% if not product_entries %}
+    <div class="mx-auto bg-neutral-700 flex flex-col items-center justify-center p-6">
+        <img src="{% static 'image/sedih-banget.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+        <p class="text-center text-white mt-4">No products yet!</p>
+    </div>
+    {% else %}
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
+        {% for product_entry in product_entries %}
+            {% include 'card_product.html' with product_entry=product_entry %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 
-...
-{% if not product_entries %}
-<p>No products yet.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Favorite</th>
-  </tr>
-
-  {% comment %} memperlihatkan data product
-  {% endcomment %} 
-  {% for product_entry in product_entries %}
-  <tr>
-    <td>{{product_entry.name}}</td>
-    <td>{{product_entry.price}}</td>
-    <td>{{product_entry.description}}</td>
-    <td>{{product_entry.favorite}}</td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
-
-<br />
-
-<a href="{% url 'main:create_product' %}">
-  <button>Add New Product</button>
-</a>
-
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
-
+<div class="bg-blue-700 font-mono fixed bottom-0 left-0 w-screen">
+    <p class="p-4 text-white">{{name}} - {{npm}} - {{class}}</p>
+</div>
 {% endblock content %}

@@ -1,5 +1,61 @@
 # 
 <http://aliefa-alsyafiandra-tioutfitters.pbp.cs.ui.ac.id/>
+
+# Tugas 5
+
+## Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+Jika ada dua atau lebih CSS selector yang ditetapkan ke satu elemen yang sama, *style* selector dengan level spesifikasi yang paling tinggi akan dipilih untuk elemen tersebut. Terdapat hirarki spesifikasi:
+1. Inline styles - Contoh: <h1 style="color: pink;">
+2. IDs - Contoh: #navbar
+3. Classes, pseudo-classes, attribute selectors - Contoh: .test, :hover, [href]
+4. Elements dan pseudo-elements - Contoh: h1, ::before
+
+Cara menghitung spesifikasi: mulai dari 0, tambahkan 100 untuk tiap ID value, tambahkan 10 untuk tiap class value (atau pseudo-class atau attribute selector), tambahkan 1 untuk tiap element selector atau pseudo-element.
+
+Note:
+- Inline style memiliki nilai spesifikasi 1000, dan selalu diberikan prioritas tertinggi,
+- Kecuali jika menggunakan !important, maka inline style tersebut juga akan di-*override*
+
+## Mengapa *responsive design* menjadi konsep yang penting dalam pengembangan aplikasi *web*? Berikan contoh aplikasi yang sudah dan belum menerapkan *responsive design*!
+
+Responsive design adalah suatu cara menyusun website sedemikian sehingga bisa menyesuaikan skala content dan elementnya ke ukuran layar yang digunakan untuk melihat website tersebut. Responsive design penting dalam pengembangan aplikasi karena dapat mempermudah pengguna dalam menggunakan aplikasi buatan kita. Dengan responsive design, diharapkannya pengguna tidak perlu melakukan resize, scroll, zoom, atau pan yang tidak dibutuhkan.
+Tanpa responsive design, akan sulit untuk menavigasi aplikasi, dan secara keuntungan, bisa merugikan karena ada kemungkinan pelanggan akan menyerah sebelum bisa melakukan apapun dalam aplikasi. 
+Contoh aplikasi yang sudah menerapkan responsive design: Twitter, YouTube
+Contoh aplikasi yang belum menerapkan responsive design: SIAK-NG, https://dequeuniversity.com/library/responsive/1-non-responsive
+
+## Jelaskan perbedaan antara *margin*, *border*, dan *padding*, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+Dalam CSS Box Model, terdapat elemen-elemen ini:
+1. Content - isi dari box, seperti text atau image
+2. Padding - memberikan ruang di sekitar content, padding transparan
+3. Border - garis batas yang mengelilingi padding dan content
+4. Margin - memberikan ruang di luar border, margin transparan
+![alt text](tugas-5-boxmodel.png)
+
+- Cara mengimplementasikan padding dengan tailwind:
+`<div class="p-8 ...">p-8</div>`
+dengan p-8 memberikan padding ke semua sisi content. padding juga bisa diberikan secara vertikal (py-8) dan horizontal (px-8) ataupun dari sisi spesifik (pt-8 untuk atas, pb-8 untuk bawah, pl-8 untuk kiri, dan pr-8 untuk kanan)
+- Cara mengimplementasikan border dengan tailwind:
+border memiliki lebih banyak spesifikasi dibandingkan dengan padding, beberapa di antaranya adalah set warna, radius, dan ketebalan border.
+- Cara mengimplementasikan margin dengan tailwind:
+mirip seperti padding, margin juga bisa diberikan dari sisi spesifik, horizontal, vertikal, ataupun semua sisi.
+
+## Jelaskan konsep *flex box* dan *grid layout* beserta kegunaannya!
+
+Flex box adalah layout yang berupa suatu flex container yang berisi flex items. Flex container ini dapat berubah-ubah ukurannya, dan flex items menyesuaikan (sesuai setting) akan berpindah, mengecil, atau membesar untuk mengisi space yang ada pada container secara efektif dan fleksibel. Flex box mungkin lebih cocok untuk komponen aplikasi dan layout skala kecil.
+Di sisi lain, grid layout lebih cocok untuk layout skala besar. Grid layout adalah layout yang berupa tabel dengan baris dan kolom. Item di dalam grid layout posisi dan ukurannya akan lebih rigid dibandingkan dengan di dalam flex box karena tidak bertujuan untuk mengisi semua space yang ada.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial)!
+
+- Membuka folder mental-health-tracker dan folder project secara bersamaan agar bisa membandingkan perbedaan.
+- Menambahkan Tailwind ke aplikasi dengan modifikasi base.html, konfigurasi static files dengan modifikasi MIDDLEWARE & STATIC_URLS settings.py, lalu membuat folder untuk static files seperti global.css atau folder untuk image.
+- Membuat function baru edit_product dan delete_product di views.py lalu routing functions di urls.py.
+- Membuat navbar.html di folder templates pada root directory, dan set styling navbar.
+- Kustomisasi page aplikasi (login, register, main, edit mood, product card, dsb.) semenarik mungkin dan menerapkan responsive design.
+
+---
+
 # Tugas 4
 
 ## Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`
