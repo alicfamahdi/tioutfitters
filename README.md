@@ -56,7 +56,7 @@ Ketika data difilter di *frontend*, seluruh dataset harus diambil, dan akibatnya
 ## Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 
 Jika ada dua atau lebih CSS selector yang ditetapkan ke satu elemen yang sama, *style* selector dengan level spesifikasi yang paling tinggi akan dipilih untuk elemen tersebut. Terdapat hirarki spesifikasi:
-1. Inline styles - Contoh: <h1 style="color: pink;">
+1. Inline styles - Contoh: `<h1 style="color: pink;">`
 2. IDs - Contoh: #navbar
 3. Classes, pseudo-classes, attribute selectors - Contoh: .test, :hover, [href]
 4. Elements dan pseudo-elements - Contoh: h1, ::before
