@@ -9,4 +9,4 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
-    favorite = models.BooleanField()
+    # favorite = models.BooleanField()

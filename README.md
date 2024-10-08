@@ -1,6 +1,56 @@
 # 
 <http://aliefa-alsyafiandra-tioutfitters.pbp.cs.ui.ac.id/>
 
+# Tugas 6
+
+## Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+
+JavaScript adalah bahasa pemrograman yang digunakan developer untuk membuat halaman web yang interaktif. Dengan JavaScript, browser dapat merespons interaksi pengguna dan mengubah tata letak konten di halaman web.
+
+Manfaat dari JavaScript, di antaranya:
+- Mudah dipelajari dan digunakan
+Sintaks JavaScript terinspirasi oleh bahasa pemrograman Java serta mudah dipelajari dan dikodekan. Node.js juga mendapatkan popularitas yang signifikan untuk pengkodean backend.
+
+- Mendapatkan independensi platform
+Tidak seperti bahasa pemrograman lain, JavaScript dapat dimasukkan ke halaman web mana pun serta dapat digunakan dengan banyak kerangka kerja dan bahasa pengembangan web lainnya. Setelah ditulis, kode JavaScript dapat dijalankan di mesin apa pun. 
+
+- Mengurangi beban server
+JavaScript dapat digunakan untuk mengurangi beban server dan kemacetan jaringan karena dapat menjalankan operasi logis serta melakukan banyak pekerjaan server pada klien itu sendiri.
+
+- Meningkatkan antarmuka pengguna
+JavaScript membuat pencarian dan pemrosesan informasi yang kompleks lebih mudah. Developer menerapkan JavaScript untuk memperluas fungsionalitas dan keterbacaan serta membuat interaksi pengguna situs web lebih efisien.
+
+- Mendukung konkurensi
+JavaScript dapat menjalankan beberapa set instruksi yang berbeda secara paralel. Di backend, Node.js dapat menangani dan memproses respons server yang skalanya dinaikkan dengan sangat tinggi tanpa menghabiskan jumlah bandwidth yang sama.
+
+## Jelaskan fungsi dari penggunaan `await` ketika kita menggunakan `fetch()`! Apa yang akan terjadi jika kita tidak menggunakan `await`?
+
+`fetch` adalah suatu function built-in JavaScript untuk membuat request HTTP. Ketika digunakan dengan `async/await`, kode asinkronus
+untuk meng-*handle* response dapat dibuat.
+Jika mendapat suatu exception yang di-*raise* pada method, tanpa `await`, exception tersebut akan hilang. Jika `await` digunakan, 
+exception akan di-*rethrow*. Sebagai *best practice*, sebaiknya menggunakan `await` dalam function.
+
+## Mengapa kita perlu menggunakan *decorator* `csrf_exempt` pada *view* yang akan digunakan untuk AJAX `POST`?
+
+Ketika menggunakan CSRF token, token unik akan dibuat secara otomatis untuk tiap update halaman. Akan tetapi, jika menggunakan AJAX, halaman tidak akan diupdate, dan tidak akan mendapat token baru. Maka `csrf_exempt` digunakan agar CSRF token tidak dibuat untuk view AJAX POST.
+
+## Pada tutorial PBP minggu ini, pembersihan data *input* pengguna dilakukan di belakang (*backend*) juga. Mengapa hal tersebut tidak dilakukan di *frontend* saja?
+
+Data difilter di *frontend* karena data input masuk melalui layer *frontend* terlebih dahulu, lalu di *backend* data tersebut akan difilter lagi agar tidak terjadi error.
+Ketika data difilter di *frontend*, seluruh dataset harus diambil, dan akibatnya menggunakan jumlah bandwidth yang lebih signifikan, terlebih ketika datasetnya besar. Filter data pada *backend* mengurangi penggunaan bandwidth tersebut dengan mentransfer data yang dibutuhkan saja ke *frontend*.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial)!
+
+- Modifikasi views.py agar menunjukkan error message pada login jika gagal.
+- Membuat function baru dalam views.py yaitu create_product_entry_ajax lalu routing function tersebut ke path /create-ajax/
+- Modifikasi agar bisa menunjukkan data product entry dengan fetch() API
+- Modifikasi main.html dengan menggantikan block conditional dengan div product_entry_cards serta menambahkan async function script
+- Membuat function JavaScript untuk add, get, refresh entries
+- Membuat modal untuk menambah product dengan AJAX
+- Melindungi app dari XSS dengan clean_data, strip_tags, dan DOMPurify
+
+---
+
 # Tugas 5
 
 ## Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
