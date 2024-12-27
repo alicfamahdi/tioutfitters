@@ -141,9 +141,9 @@ def create_product_flutter(request):
         data = json.loads(request.body)
         new_product = Product.objects.create(
             user=request.user,
-            product=data["name"],
-            product_intensity=int(data["price"]),
-            feelings=data["description"]
+            name=data["name"],
+            price=int(data["price"]),
+            description=data["description"]
         )
 
         new_product.save()
